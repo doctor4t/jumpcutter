@@ -129,7 +129,7 @@ hasLoudAudio = np.zeros((audioFrameCount))
 for i in range(audioFrameCount):
     start = int(i*samplesPerFrame)
     end = min(int((i+1)*samplesPerFrame),audioSampleCount)
-    audiochunks = audioData[start:end]
+    audiochunks = audioData[start:end, 0]
     maxchunksVolume = float(getMaxVolume(audiochunks))/maxAudioVolume
     if maxchunksVolume >= SILENT_THRESHOLD:
         hasLoudAudio[i] = 1
